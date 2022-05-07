@@ -1,5 +1,10 @@
+import Navbar from "./Navbar/Navbar";
 function App() {
-  return <di>Himanshu</di>;
+  return (
+    <div>
+      <Navbar></Navbar>
+    </div>
+  );
 }
 
 export default App;
