@@ -28,12 +28,12 @@ function Sidebar() {
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
-        <ul className="sidebarSocial">
+        <div className="sidebarSocial">
           <i className="sidebarIcon fab fa-facebook-square"></i>
           <i className="sidebarIcon fab fa-instagram-square"></i>
-          <i className="sidebarIcon fab fa-twitter-square"></i>
           <i className="sidebarIcon fab fa-pinterest-square"></i>
-        </ul>
+          <i className="sidebarIcon fab fa-twitter-square"></i>
+        </div>
       </div>
     </div>
   );

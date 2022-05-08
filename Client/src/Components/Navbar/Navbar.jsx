@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -12,11 +13,43 @@ const Navbar = () => {
       </div>
       <div className="topCenter">
         <ul className="topList">
-          <li className="topListItem">HOME</li>
-          <li className="topListItem">ABOUT</li>
-          <li className="topListItem">CONTACT</li>
-          <li className="topListItem">WRITE</li>
-          <li className="topListItem">LOGOUT</li>
+          <li className="topListItem">
+            <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
+              HOME
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/settings"
+            >
+              ABOUT
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/contact"
+            >
+              CONTACT
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/write"
+            >
+              WRITE
+            </Link>
+          </li>
+          <li className="topListItem">
+            <Link
+              style={{ textDecoration: "none", color: "inherit" }}
+              to="/logout"
+            >
+              LOGOUT
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="topRight">

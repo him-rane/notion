@@ -21,7 +21,7 @@ function SinglePost() {
           <span className="singlePostAuthor">Himanshu</span>
           <span className="singlePostDate">1 hour ago</span>
         </div>
-        <p>
+        <p className="singlePostDesc">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id
           accusantium quo expedita modi? Expedita, dolorem reprehenderit a
           labore, atque nam quae deleniti possimus vel soluta neque magnam, ea

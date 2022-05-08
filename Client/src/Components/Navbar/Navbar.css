@@ -48,3 +48,6 @@
   cursor: pointer;
   margin-left: 15px;
 }
+.topListItem link {
+  li: none;
+}
