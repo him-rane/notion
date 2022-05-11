@@ -1,20 +1,12 @@
+import Post from "../post/Post";
 import "./posts.css";
-import Post from "../Post/Post";
 
-function Posts() {
+export default function Posts({ posts }) {
   return (
     <div className="posts">
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
-      <Post></Post>
+      {posts.map((p) => (
+        <Post key={p._id} post={p} />
+      ))}
     </div>
   );
 }
-
-export default Posts;

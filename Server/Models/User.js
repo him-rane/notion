@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const UserSchema = new mongoose.Schema(
   {
     username: {
@@ -13,9 +14,9 @@ const UserSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
-    pofilePic: {
+    profilePic: {
       type: String,
       default: "",
     },

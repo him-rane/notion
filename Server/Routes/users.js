@@ -1,13 +1,14 @@
 const router = require("express").Router();
-const User = require("../Models/User");
-
+const User = require("../models/User");
+const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
 
+//UPDATE
 router.put("/:id", async (req, res) => {
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
-      req.body.password = await bcrypt.hash(req.body.password.toString(), salt);
+      req.body.password = await bcrypt.hash(req.body.password, salt);
     }
     try {
       const updatedUser = await User.findByIdAndUpdate(
@@ -15,19 +16,18 @@ router.put("/:id", async (req, res) => {
         {
           $set: req.body,
         },
-        {
-          new: true,
-        }
+        { new: true }
       );
       res.status(200).json(updatedUser);
-    } catch (error) {
-      res.status(500).json(error);
+    } catch (err) {
+      res.status(500).json(err);
     }
   } else {
-    res.status(401).json("You can update  only you account");
+    res.status(401).json("You can update only your account!");
   }
 });
 
+//DELETE
 router.delete("/:id", async (req, res) => {
   if (req.body.userId === req.params.id) {
     try {

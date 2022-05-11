@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const PostSchema = new mongoose.Schema(
   {
     title: {
@@ -10,13 +11,13 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    username: {
-      type: String,
-      require: true,
-    },
     photo: {
       type: String,
-      default: "",
+      required: false,
+    },
+    username: {
+      type: String,
+      required: true,
     },
     categories: {
       type: Array,

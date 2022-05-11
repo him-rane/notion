@@ -1,17 +1,15 @@
 const router = require("express").Router();
-const Post = require("../Models/Post");
+const User = require("../models/User");
+const Post = require("../models/Post");
 
-const bcrypt = require("bcrypt");
-const { response } = require("express");
-const { route } = require("./users");
-
+//CREATE POST
 router.post("/", async (req, res) => {
   const newPost = new Post(req.body);
   try {
     const savedPost = await newPost.save();
     res.status(200).json(savedPost);
-  } catch (error) {
-    res.status(500).json(error);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
@@ -39,6 +37,8 @@ router.put("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//DELETE POST
 router.delete("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -57,17 +57,17 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//Get single post
+//GET POST
 router.get("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    res.status(400).json(post);
-  } catch (error) {
-    res.status(500).json(error);
+    res.status(200).json(post);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
-// Get all post
+//GET ALL POSTS
 router.get("/", async (req, res) => {
   const username = req.query.user;
   const catName = req.query.cat;

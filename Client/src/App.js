@@ -1,26 +1,49 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Pages/home/Home";
+
+import Single from "./Pages/single/Single";
+import Write from "./Pages/write/Write";
+import Settings from "./Pages/settings/Settings";
+import Login from "./Pages/login/Login";
+import Register from "./Pages/register/Register";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Routes,
+} from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 import Navbar from "./Components/Navbar/Navbar";
-import Single from "./Components/Single/Single";
-import Home from "./Pages/Home";
-import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register";
-import Settings from "./Pages/Settigs/Settings";
-import Write from "./Pages/Write/Write";
 
 function App() {
+  const { user } = useContext(Context);
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/write" element={<Write />} />
-        <Route path="/single" element={<Single />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route
+            exact
+            path="/register"
+            element={user ? <Home /> : <Register />}
+          />
+          <Route exact path="/login" element={user ? <Home /> : <Login />} />
+          <Route
+            exact
+            path="/write"
+            element={user ? <Write /> : <Register />}
+          />
+          <Route
+            exact
+            path="/settings"
+            element={user ? <Settings /> : <Register />}
+          />
+          <Route exact path="/post/:postId" element={<Single />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
